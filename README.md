@@ -6,21 +6,28 @@ This repository contains the source code and documentation for UNT GradSphere. T
 ### Project Objective
 GradSphere serves as an instrumental platform for UNT alumni, facilitating seamless connectivity and interaction. Through carefully designed features and functionalities, the project aims to cultivate a dynamic community where alumni can engage, share experiences, and contribute to the ongoing legacy of the university.
 
-## Contents
+### Contents
 
-### Main: This directory holds the main source code for the project.
+#### Main 
+This directory holds the main source code for the project.
 
-### FrontEnd: The frontend code and related assets are stored in this directory.
+#### FrontEnd 
+The frontend code and related assets are stored in this directory.
 
-### BackEnd: Backend code, server configurations, and related documentation can be found here.
+#### BackEnd 
+Backend code, server configurations, and related documentation can be found here.
 
-### Deployment: Information and scripts related to the deployment of the project.
+#### Deployment 
+Information and scripts related to the deployment of the project.
 
-### PlanningDocuments: Information and screenshots are present to provide a visual insight into the anticipated aesthetics and structure of the project.
+#### PlanningDocuments 
+Information and screenshots are present to provide a visual insight into the anticipated aesthetics and structure of the project.
 
-### ProjectReport: A detailed report outlining the project, its objectives, methodologies, and results.
+#### ProjectReport 
+A detailed report outlining the project, its objectives, methodologies, and results.
 
-### MeetingMinutes: Minutes from project-related meetings.
+#### MeetingMinutes 
+Minutes from project-related meetings.
 
 ### Team Members: 
     1) Rajalakshmi Kamalini Ponnuru
