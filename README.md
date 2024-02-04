@@ -6,15 +6,19 @@ This repository contains the source code and documentation for UNT GradSphere. T
 ### Project Objective
 GradSphere serves as an instrumental platform for UNT alumni, facilitating seamless connectivity and interaction. Through carefully designed features and functionalities, the project aims to cultivate a dynamic community where alumni can engage, share experiences, and contribute to the ongoing legacy of the university.
 
-### Directory: 
+### - Directory: 
 Research - txt - links to what we used
+
 Data Collection - Screenshots of Few  UI’s of Alumni Portal’s
+
 Main ( Source Code) 
     -Front End
     -Back End
     -Deployment
 Meeting Minutes 
+
 Planning Documents
+
 Project Reports 
 
 ### Contents
