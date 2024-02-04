@@ -11,10 +11,11 @@ Research - txt - links to what we used
 
 Data Collection - Screenshots of Few  UI’s of Alumni Portal’s
 
-Main ( Source Code) 
-    -Front End
-    -Back End
-    -Deployment
+Main ( Source Code)
+    Front End
+    Back End
+    Deployment
+
 Meeting Minutes 
 
 Planning Documents
