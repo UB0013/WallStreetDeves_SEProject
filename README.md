@@ -8,9 +8,6 @@ GradSphere serves as an instrumental platform for UNT alumni, facilitating seaml
 
 ### Contents
 
-#### - Main: 
-This directory holds the main source code for the project.
-
 #### - FrontEnd: 
 The frontend code and related assets are stored in this directory.
 
