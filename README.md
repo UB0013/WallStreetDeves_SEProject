@@ -8,25 +8,25 @@ GradSphere serves as an instrumental platform for UNT alumni, facilitating seaml
 
 ### Contents
 
-#### Main 
+#### - Main: 
 This directory holds the main source code for the project.
 
-#### FrontEnd 
+#### - FrontEnd: 
 The frontend code and related assets are stored in this directory.
 
-#### BackEnd 
+#### - BackEnd: 
 Backend code, server configurations, and related documentation can be found here.
 
-#### Deployment 
+#### - Deployment: 
 Information and scripts related to the deployment of the project.
 
-#### PlanningDocuments 
+#### - PlanningDocuments: 
 Information and screenshots are present to provide a visual insight into the anticipated aesthetics and structure of the project.
 
-#### ProjectReport 
+#### - ProjectReport: 
 A detailed report outlining the project, its objectives, methodologies, and results.
 
-#### MeetingMinutes 
+#### - MeetingMinutes: 
 Minutes from project-related meetings.
 
 ### Team Members: 
