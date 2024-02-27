@@ -1,5 +1,5 @@
 Note-2-devlierable.txt - that contains the directory information for files submitted this deliverable.
 
-WallStreetDevs_Deliverable2.pdf - This is deliverable 2 doc submitted in the canvas.
-Meeting Minutes 7 & 8 are uploaded in the meeting minutes folder which is recorded for the devlierable 2.
-Updated in trello whenever we had a Team's call. 
+WallStreetDevs_Deliverable2.pdf - This is deliverable 2 doc submitted in the canvas. It can found at https://github.com/kamaliniPonnuru/WallStreetDeves_SEProject/tree/main/Deliverable2 this location.
+Meeting Minutes 7 & 8 are uploaded in the meeting minutes folder which is recorded for the devlierable 2. It can found at https://github.com/kamaliniPonnuru/WallStreetDeves_SEProject/tree/main/Meeting_Minutes
+Updated in trello whenever we had a Team's call.  It can found at https://trello.com/b/IiDZULgO/wallstreetdevsseproject.
