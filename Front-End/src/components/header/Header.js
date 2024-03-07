@@ -5,11 +5,9 @@ import { NavLink } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import Home from "../Home";
 import Signup from "../Signup";
-import Login from "../login";
+import Login from "../Login";
 import Contactus from "../Contactus";
 import Userprofile from "../user-profile/Userprofile";
-import Cart from "../cart/Cart";
-import Products from "../view-products/ViewProducts";
 import { useSelector } from "react-redux";
 import { clearLoginStatus } from "../../slices/userSlice";
 import { useDispatch } from "react-redux";
@@ -74,8 +72,8 @@ function Header() {
                   {/* This dropdown is visible only when a user is logged in */}
                   <NavDropdown
                     title={userObj.username}
-                    id="collasible-nav-dropdown"
-                    id="drop-down"
+                    //id="collasible-nav-dropdown"
+                     id="drop-down"
                   >
                     <NavDropdown.Item>Change password</NavDropdown.Item>
 
@@ -97,9 +95,6 @@ function Header() {
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/userdashboard" element={<Userdashboard />}>
           <Route path="profile" element={<Userprofile />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="products" element={<Products />} />
-          {/* Navigating to profile when child path is empty */}
           <Route path="" element={<Navigate to="profile" replace={true} />} />
         </Route>
       </Routes>
