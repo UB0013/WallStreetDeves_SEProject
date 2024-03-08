@@ -7,7 +7,7 @@ import Home from "../Home";
 import Signup from "../Signup";
 import Login from "../Login";
 import Contactus from "../Contactus";
-import UserProfile from "../user-profile/UserProfile";
+import UserProfile from "../user-profile/Userprofile";
 import { useSelector } from "react-redux";
 import { clearLoginStatus } from "../../slices/userSlice";
 import { useDispatch } from "react-redux";
