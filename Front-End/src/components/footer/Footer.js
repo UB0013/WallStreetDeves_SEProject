@@ -5,7 +5,7 @@ function Footer() {
     <footer className="bg-dark text-white text-center">
       <div className="wrapper mt-3">
         <small>
-          @2022 <strong>VNR College of Engineering</strong>, All Rights Reserved
+          @2024 <strong>University of North Texas</strong>, All Rights Reserved
         </small>
         <nav className="footer-nav">
           <a href="#">Terms of Use</a>

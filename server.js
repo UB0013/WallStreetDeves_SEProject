@@ -35,7 +35,7 @@ mclient.connect(DBurl)
 
 
 //import userApp and productApp
-const userApp = require("../Back-End/APIS/userApi");
+const userApp = require("./Back-End/APIS/userApi");
 //excute specific middleware based on path
 app.use("/user-api", userApp);
 
