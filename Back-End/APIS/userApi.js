@@ -7,7 +7,7 @@ const bcryptjs = require("bcryptjs");
 //import jsonwebtoken to create token
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const verifyToken=require('./middlewares/verifyToken')
+const verifyToken = require('./middlewares/verifyToken')
 
 //to extract body of request object
 userApp.use(exp.json());
@@ -17,7 +17,7 @@ userApp.use(exp.urlencoded());
 
 //create route to handle '/getusers' path
 userApp.get(
-  "/getusers",verifyToken,
+  "/getusers", verifyToken,
   expressAsyncHandler(async (request, response) => {
     //get userCollectionObject
     let userCollectionObject = request.app.get("userCollectionObject");
@@ -78,44 +78,57 @@ userApp.post(
 userApp.post(
   "/create-user",
   expressAsyncHandler(async (request, response) => {
-    //get link from cloudinary
     //console.log(request.file.path);
-      //get userCollectionObject
-      let userCollectionObject = request.app.get("userCollectionObject");
-      //get userObj as string from client and convert into object
-      let newUserObj = JSON.parse(request.body.userObj);
-      //seacrh for user by username
-      let userOfDB = await userCollectionObject.findOne({
-        username: newUserObj.username,
+    //get userCollectionObject
+    let userCollectionObject = request.app.get("userCollectionObject");
+    //get userObj as string from client and convert into object
+    let newUserObj;
+    console.log("Received userObj data:", request.body.userObj);
+
+
+    try {
+      // Try to parse the JSON string
+      newUserObj = JSON.parse(request.body.userObj);
+    } catch (error) {
+      // If parsing fails, handle the error (e.g., log it)
+      console.error("Error parsing JSON:", error);
+      response.status(400).send({ message: "Invalid JSON data" });
+      return;
+    }
+    console.log(newUserObj)
+    // Now, newUserObj is the parsed object
+    // Continue with the rest of your code...
+
+    //seacrh for user by username
+    let userOfDB = await userCollectionObject.findOne({
+      username: newUserObj.username,
+    });
+    //if user existed
+    if (userOfDB !== null) {
+      response.send({
+        message: "Username has already taken..Plz choose another",
       });
-      //if user existed
-      if (userOfDB !== null) {
-        response.send({
-          message: "Username has already taken..Plz choose another",
-        });
-      }
-      //if user not existed
-      else {
-        //hash password
-        let hashedPassword = await bcryptjs.hash(newUserObj.password, 6);
-        //replace plain password with hashed password in newUserObj
-        newUserObj.password = hashedPassword;
-        //add profile image link to newUserObj
-        newUserObj.profileImg=request.file.path;
-        //removw photo property
-        delete newUserObj.photo;
-        //insert newUser
-        await userCollectionObject.insertOne(newUserObj);
-        //send response
-        response.send({ message: "New User created" });
-      }
+    }
+    //if user not existed
+    else {
+      //hash password
+      let hashedPassword = await bcryptjs.hash(newUserObj.password, 6);
+      //replace plain password with hashed password in newUserObj
+      newUserObj.password = hashedPassword;
+      //add profile image link to newUserObj
+      newUserObj.profileImg = request.file.path;
+      //insert newUser
+      await userCollectionObject.insertOne(newUserObj);
+      //send response
+      response.send({ message: "New User created" });
+    }
   })
 );
 
 
 //private route for testing
-userApp.get('/test',verifyToken,(request,response)=>{
-  response.send({message:"This reply is from private route"})
+userApp.get('/test', verifyToken, (request, response) => {
+  response.send({ message: "This reply is from private route" })
 })
 
 //create a route to modify user data

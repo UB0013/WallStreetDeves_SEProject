@@ -10,7 +10,7 @@ const path=require('path');
 app.use(cors());
 
 //connect build of react app with nodejs
-app.use(exp.static(path.join(__dirname,'../Front-End/build/index.html')))
+app.use(exp.static(path.join(__dirname,'../Front-End/build')))
 
 //DB connection URL
 const dbUrl='mongodb+srv://Varun:Varun@cluster0.klf74.mongodb.net/';
@@ -43,7 +43,7 @@ app.use("/user-api", userApp);
 
 // dealing with page refresh
 app.use('/',(request,response)=>{
-  response.sendFile(path.join(__dirname,'../Front-End/build/index.html'))
+  response.sendFile(path.join(__dirname,'../Front-End/build'))
 })
 
 

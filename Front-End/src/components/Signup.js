@@ -14,12 +14,6 @@ function Signup() {
 
   // state for image
   const [img, setImg] = useState(null);
-
-  // on image select
-  const onImageSelect = (event) => {
-    setImg(event.target.files[0]);
-  };
-
   const navigate = useNavigate();
 
   const onFormSubmit = async (userObj) => {
@@ -28,11 +22,14 @@ function Signup() {
       const formData = new FormData();
       // append values to it
       formData.append("userObj", JSON.stringify(userObj));
-      formData.append("photo", img);
 
       // http post req
-      const response = await axios.post("http://localhost:4000/user-api/create-user", formData);
-
+      const response = await axios.post("http://localhost:4000/user-api/create-user", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      
       alert(response.data.message);
 
       if (response.data.message === "New User created") {
@@ -119,20 +116,6 @@ function Signup() {
               {/* validation error message for password */}
               {errors.city && (
                 <p className="text-danger">* City is required</p>
-              )}
-            </Form.Group>
-
-            {/* profile image */}
-            <Form.Group className="mb-3">
-              <Form.Label>Select image</Form.Label>
-              <Form.Control
-                type="file"
-                {...register("photo", { required: true })}
-                onChange={(event) => onImageSelect(event)}
-              />
-              {/* validation error message for password */}
-              {errors.photo && (
-                <p className="text-danger">* Profile image is required</p>
               )}
             </Form.Group>
 
