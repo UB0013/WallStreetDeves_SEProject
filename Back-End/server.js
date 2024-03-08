@@ -9,7 +9,7 @@ const path=require('path');
 app.use(cors());
 
 //connect build of react app with nodejs
-app.use(exp.static(path.join(__dirname,'./build')))
+app.use(exp.static(path.join(__dirname,'../Front-End/build/index.html')))
 
 //DB connection URL
 const DBurl='mongodb+srv://Varun:Varun@cluster0.klf74.mongodb.net/';
@@ -35,15 +35,15 @@ mclient.connect(DBurl)
 
 
 //import userApp and productApp
-const userApp = require("./Back-End/APIS/userApi");
+const userApp = require("./APIS/userApi");
 //excute specific middleware based on path
 app.use("/user-api", userApp);
 
 
 //dealing with page refresh
-app.use('*',(request,response)=>{
-  response.sendFile(path.join(__dirname,'./build/index.html'))
-})
+// app.use('*',(request,response)=>{
+//   response.sendFile(path.join(__dirname,'./build/index.html'))
+// })
 
 
 //handling invalid paths
