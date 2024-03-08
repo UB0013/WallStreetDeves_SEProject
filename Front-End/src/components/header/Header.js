@@ -7,7 +7,7 @@ import Home from "../Home";
 import Signup from "../Signup";
 import Login from "../Login";
 import Contactus from "../Contactus";
-import Userprofile from "../user-profile/Userprofile";
+import UserProfile from "../user-profile/UserProfile";
 import { useSelector } from "react-redux";
 import { clearLoginStatus } from "../../slices/userSlice";
 import { useDispatch } from "react-redux";
@@ -94,7 +94,7 @@ function Header() {
         <Route path="/login" element={<Login />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/userdashboard" element={<Userdashboard />}>
-          <Route path="profile" element={<Userprofile />} />
+          <Route path="profile" element={<UserProfile />} />
           <Route path="" element={<Navigate to="profile" replace={true} />} />
         </Route>
       </Routes>

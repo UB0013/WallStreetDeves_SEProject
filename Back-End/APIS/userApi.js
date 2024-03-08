@@ -77,7 +77,6 @@ userApp.post(
 //create a route to 'create-user'
 userApp.post(
   "/create-user",
-  upload.single("photo"),
   expressAsyncHandler(async (request, response) => {
     //get link from cloudinary
     //console.log(request.file.path);

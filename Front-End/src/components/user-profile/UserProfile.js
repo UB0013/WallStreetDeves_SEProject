@@ -2,7 +2,7 @@ import React from "react";
 import {Card,Button} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
 
-function Userprofile() {
+function UserProfile() {
 
   //get userObj from redux
   let {userObj}=useSelector(state=>state.user);
@@ -24,4 +24,4 @@ function Userprofile() {
   );
 }
 
-export default Userprofile;
+export default UserProfile;

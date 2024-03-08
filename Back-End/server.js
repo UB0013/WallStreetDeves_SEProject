@@ -2,6 +2,7 @@
 const exp = require("express");
 const app = exp();
 const mclient=require("mongodb").MongoClient;
+const cors = require("cors")
 
 //import path module
 const path=require('path');
@@ -12,10 +13,10 @@ app.use(cors());
 app.use(exp.static(path.join(__dirname,'../Front-End/build/index.html')))
 
 //DB connection URL
-const DBurl='mongodb+srv://Varun:Varun@cluster0.klf74.mongodb.net/';
+const dbUrl='mongodb+srv://Varun:Varun@cluster0.klf74.mongodb.net/';
 
 //connect with mongoDB server
-mclient.connect(DBurl)
+mclient.connect(dbUrl)
 .then((client)=>{
 
   //get DB object
@@ -40,10 +41,10 @@ const userApp = require("./APIS/userApi");
 app.use("/user-api", userApp);
 
 
-//dealing with page refresh
-// app.use('*',(request,response)=>{
-//   response.sendFile(path.join(__dirname,'./build/index.html'))
-// })
+// dealing with page refresh
+app.use('*',(request,response)=>{
+  response.sendFile(path.join(__dirname,'../Front-End/build/index.html'))
+})
 
 
 //handling invalid paths
