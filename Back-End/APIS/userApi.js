@@ -84,10 +84,9 @@ userApp.post(
     //get userObj as string from client and convert into object
     let newUserObj;
     console.log("Received userObj data:", request.body.userObj);
-
-
     try {
       // Try to parse the JSON string
+      console.log("hi")
       newUserObj = JSON.parse(request.body.userObj);
     } catch (error) {
       // If parsing fails, handle the error (e.g., log it)
@@ -95,29 +94,25 @@ userApp.post(
       response.status(400).send({ message: "Invalid JSON data" });
       return;
     }
-    console.log(newUserObj)
-    // Now, newUserObj is the parsed object
-    // Continue with the rest of your code...
 
     //seacrh for user by username
     let userOfDB = await userCollectionObject.findOne({
       username: newUserObj.username,
     });
+    console.log(userOfDB)
     //if user existed
     if (userOfDB !== null) {
       response.send({
         message: "Username has already taken..Plz choose another",
       });
     }
-    //if user not existed
     else {
       //hash password
       let hashedPassword = await bcryptjs.hash(newUserObj.password, 6);
       //replace plain password with hashed password in newUserObj
       newUserObj.password = hashedPassword;
-      //add profile image link to newUserObj
-      newUserObj.profileImg = request.file.path;
       //insert newUser
+      console.log(newUserObj)
       await userCollectionObject.insertOne(newUserObj);
       //send response
       response.send({ message: "New User created" });
