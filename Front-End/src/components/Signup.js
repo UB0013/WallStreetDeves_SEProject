@@ -18,18 +18,19 @@ function Signup() {
 
   const onFormSubmit = async (userObj) => {
     try {
-      // create FormData object
+      // // create FormData object
       const formData = new FormData();
-      // append values to it
+      // // append values to it
       formData.append("userObj", JSON.stringify(userObj));
 
       // http post req
+      console.log(formData);
       const response = await axios.post("http://localhost:4000/user-api/create-user", formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": 'application/json',
         },
       });
-      
+      console.log(response);
       alert(response.data.message);
 
       if (response.data.message === "New User created") {
