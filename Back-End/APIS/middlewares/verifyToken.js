@@ -20,7 +20,7 @@ const verifyToken = (request, response, next) => {
   }
   try {
     //verify token
-    jwt.verify(token, process.env.SECRET_KEY);
+    jwt.verify(token, 'mySecretKey');
     //forwarfd req to private route
     next();
   } catch (err) {

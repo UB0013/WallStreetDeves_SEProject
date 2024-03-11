@@ -60,7 +60,7 @@ userApp.post(
         //create token
         let token = jwt.sign(
           { username: userOfDB.username },
-          process.env.SECRET_KEY,
+          'mySecretKey',
           { expiresIn: 10 }
         );
         //send token
