@@ -4,7 +4,9 @@ import axios from 'axios';
 // make HTTP POST req to login user
 export const userLogin = createAsyncThunk('loginuser', async (userCredentialsObject, thunkApi) => {
   try {
+    console.log(userCredentialsObject)
     const response = await axios.post('/user-api/login', userCredentialsObject);
+    console.log(response)
     const data = response.data;
 
     if (data.message === 'success') {
