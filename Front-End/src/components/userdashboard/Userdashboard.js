@@ -6,7 +6,7 @@ import { Nav } from "react-bootstrap";
 import { Outlet, NavLink } from "react-router-dom";
 import { Link, Routes, Route } from 'react-router-dom';
 import Userprofile from "../user-profile/UserProfile";
-import NewPost from "../NewPost";
+import NewPost from "../NewPost/NewPost";
 
 
 
@@ -16,6 +16,7 @@ function Userdashboard() {
   const handleNavigation = (path) => {
     navigate(path);
   };
+
   return (
     <>
       {/* <img
@@ -48,45 +49,47 @@ function Userdashboard() {
           <Outlet />
         </div> */}
       <>
-      <div className="userdashboard-container">
-      <div className="user-dashboard-card">
-          <Link to="/userdashboard/profile" className="user-dashboard-card-link">
-            <div className="user-dashboard-card-content">
-              <h3>View Profile</h3>
-            </div>
-          </Link>
+        <div style={{ display: 'flex', alignItems: 'center', marginTop:'40px', marginLeft:'30px' }}>
+          <h3 style={{ marginRight: '10px' }}>Hello, {userObj.username}!</h3>
+          <h5>Connect with your alumni network.</h5>
         </div>
-        <div className="user-dashboard-card">
-          <Link to="/new-post" className="user-dashboard-card-link">
-            <div className="user-dashboard-card-content">
-              <h3>Create New Post</h3>
-            </div>
-          </Link>
+        <div className="userdashboard-container">
+          <div className="user-dashboard-card">
+            <Link to="/userdashboard/profile" className="user-dashboard-card-link">
+              <div className="user-dashboard-card-content">
+                <h3>View Profile</h3>
+              </div>
+            </Link>
+          </div>
+          <div className="user-dashboard-card">
+            <Link to="/new-post" className="user-dashboard-card-link">
+              <div className="user-dashboard-card-content">
+                <h3>Create New Post</h3>
+              </div>
+            </Link>
+          </div>
+          <div className="user-dashboard-card">
+            <Link to="/userdashboard/edit-profile" className="user-dashboard-card-link">
+              <div className="user-dashboard-card-content">
+                <h3>Edit Profile</h3>
+              </div>
+            </Link>
+          </div>
         </div>
-        <div className="user-dashboard-card">
-          <Link to="/userdashboard/edit-profile" className="user-dashboard-card-link">
-            <div className="user-dashboard-card-content">
-              <h3>Edit Profile</h3>
-            </div>
-          </Link>
-        </div>
-      </div>
 
+        <div className="user-dashboard">
+          <div className="user-dashboard-sidebar">
+          </div>
 
-      <div className="user-dashboard">
-      <div className="user-dashboard-sidebar">
-        
-      
-      </div>
-      <div>
-        <Routes>
-           <Route path="/userdashboard/profile" element={<Userprofile />} />
-           <Route path="/new-post" element={<NewPost />} /> 
-        </Routes>
-      </div>
-    </div>
+          <div>
+            <Routes>
+              <Route path="/userdashboard/profile" element={<Userprofile />} />
+              <Route path="/new-post" element={<NewPost />} />
+            </Routes>
+          </div>
+        </div>
       </>
-    </>  
+    </>
   );
 }
 

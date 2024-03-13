@@ -13,8 +13,8 @@ import { clearLoginStatus } from "../../slices/userSlice";
 import { useDispatch } from "react-redux";
 import Userdashboard from "../userdashboard/Userdashboard";
 import { useNavigate ,Navigate} from "react-router-dom";
-import Posts from "../Posts/Posts";
-import Post from "../Posts/Post/Post";
+import Posts from "../posts/Posts";
+import NewPost from "../NewPost/NewPost";
 
 function Header() {
   //get state from store
@@ -113,8 +113,8 @@ function Header() {
         <Route path="/login" element={<Login />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/posts" element={<Posts />} />
-        <Route path="/post/:id" element={<Post/>}/>
         <Route path="events" element={<Userprofile />} />
+        <Route path="/new-post" element={<NewPost />} />
         <Route path="/userdashboard" element={<Userdashboard />}>
           <Route path="profile" element={<Userprofile />} />
           <Route path="" element={<Navigate to="profile" replace={true} />} />

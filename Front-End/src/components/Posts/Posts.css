@@ -1,215 +1,42 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
-
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-} */
-.PostContent{
-    font-size: 80%;
-    font-family: 'Courier New', Courier, monospace;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 100px;
-    display: inline-block;
-    margin-top: 12px;
-}
-.Linkpost {
-  text-decoration: none;
-  color: #3498db;
-  display: block;
-  margin-bottom: 0px;
-  height: 0px;
-}
-
-.Linkpost:hover {
-  color: #2980b9;
-}
-.postUrl{
-    color: darkblue;
-    font-size: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    display: inline-block;
-    margin-top: 0px;
-}
-.card-list {
-    list-style: none; 
-    padding: 10px; 
-    margin: 10px; 
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 100vw;
+/* styles.css */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
   }
   
-li {
-    display: inline-block; 
-    margin-right: 100px; 
-}
-
-.posts_body {
-  font-family: "Quicksand", sans-serif;
-  display: grid;
-  height: 100%;
-  background: linear-gradient(to right, #ffefba, #ffffff);
-}
- 
-/* .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  max-width: 500px;
-  margin-block: 2rem;
-  gap: 2rem;
-  flex-direction: column;
-} */
-
-img {
-  max-width: 100%;
-  display: block;
-  object-fit: cover;
-  height: 100%;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  width: clamp(12rem, calc(20rem + 2vw), 15rem);
-  overflow: hidden;
-  box-shadow: 10 .1rem 1rem rgba(0, 0, 0, 0.1);
-  border-radius: 1em;
-  background: #ffffff;
-  height: 45vh;
-  border: 2px solid #000000;
-}
-
-
-
-.card__body {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  height: 20px;
-}
-
-
-.tag {
-  align-self: flex-start;
-  padding: .25em .75em;
-  border-radius: 1em;
-  font-size: .75rem;
-}
-
-.tag + .tag {
-  margin-left: .5em;
-}
-
-.tag-blue {
-  background: #56CCF2;
-background: linear-gradient(to bottom, #2F80ED, #56CCF2);
-  color: #fafafa;
-}
-
-.tag-brown {
-  background: #D1913C;
-background: linear-gradient(to bottom, #FFD194, #D1913C);
-  color: #fafafa;
-}
-
-.tag-red {
-  background: #cb2d3e;
-  background: linear-gradient(to bottom, #ef473a, #cb2d3e);
-  color: #fafafa;
-}
-
-.card__header{
-    height:20vh;
-}
-
-.card__body h5 h4 h3 {
-  font-size: 1.5rem;
-  text-transform: capitalize;
-}
-
-.card__footer {
-  display: flex;
-  padding: 1rem;
-  margin-top: auto;
-}
-
-.user {
-  display: flex;
-  gap: .5rem;
-}
-
-.user__image {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #272525;
-}
-.user__info{
-  margin: 0px;
-  flex-grow: 1;
-}
-.user__info > small {
-  color: #666;
-}  
-.user_name{
-  margin: 0px;
-}
-
-.pageNumbers {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.pageNumbers li {
-  margin: 0 5px;
-}
-
-.pageNumbers button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.pageNumbers button:hover {
-  background-color: #0056b3;
-}
-
-.pageNumbers button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.loadmore {
-  display: block;
-  margin: 20px auto;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.loadmore:hover {
-  background-color: #0056b3;
-}
+  .post {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .post h3 {
+    margin-top: 0;
+  }
+  
+  .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  .pagination li {
+    margin-right: 10px;
+  }
+  
+  .pagination li a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+  }
+  
+  .pagination li.active a {
+    background-color: #007bff;
+    color: #fff;
+  }
+  

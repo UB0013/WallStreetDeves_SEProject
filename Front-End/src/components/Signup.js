@@ -13,7 +13,6 @@ function Signup() {
   } = useForm();
 
   // state for image
-  const [img, setImg] = useState(null);
   const navigate = useNavigate();
 
   const onFormSubmit = async (userObj) => {
