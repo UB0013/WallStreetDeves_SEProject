@@ -6,7 +6,9 @@ function Home() {
   return (
     <Container className="text-center">
       {/* <div className="display-1 text-center text-primary fw-bold">Alma Mingle</div> */}
-      <img src={homeImg} alt="" className="w-50 shadow-lg rounded mt-5" /> 
+      <div class="d-flex justify-content-center">
+          <img src={homeImg} alt="" className="w-50 shadow-lg rounded mt-5" />
+      </div>
       <p className="py-4">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non tenetur
         accusamus impedit architecto excepturi temporibus eos ducimus magnam
