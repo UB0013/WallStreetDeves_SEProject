@@ -7,12 +7,14 @@ import Home from "../Home";
 import Signup from "../Signup";
 import Login from "../Login";
 import Contactus from "../Contactus";
-import Userprofile from "../user-profile/Userprofile";
+import Userprofile from "../user-profile/UserProfile";
 import { useSelector } from "react-redux";
 import { clearLoginStatus } from "../../slices/userSlice";
 import { useDispatch } from "react-redux";
 import Userdashboard from "../userdashboard/Userdashboard";
 import { useNavigate ,Navigate} from "react-router-dom";
+import Posts from "../Posts/Posts";
+import Post from "../Posts/Post/Post";
 
 function Header() {
   //get state from store
@@ -70,6 +72,23 @@ function Header() {
               ) : (
                 <>
                   {/* This dropdown is visible only when a user is logged in */}
+                  <Nav.Item>
+                    <Nav.Link eventKey="1" as={NavLink} to="/userdashboard">
+                      User Dashboard
+                    </Nav.Link>
+                  </Nav.Item>
+
+                  <Nav.Item>
+                    <Nav.Link eventKey="2" as={NavLink} to="/posts">
+                      Posts
+                    </Nav.Link>
+                  </Nav.Item>
+
+                  <Nav.Item>
+                    <Nav.Link eventKey="3" as={NavLink} to="/userdashboard/events">
+                      Events
+                    </Nav.Link>
+                  </Nav.Item>
                   <NavDropdown
                     title={userObj.username}
                     //id="collasible-nav-dropdown"
@@ -93,6 +112,9 @@ function Header() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contactus" element={<Contactus />} />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/post/:id" element={<Post/>}/>
+        <Route path="events" element={<Userprofile />} />
         <Route path="/userdashboard" element={<Userdashboard />}>
           <Route path="profile" element={<Userprofile />} />
           <Route path="" element={<Navigate to="profile" replace={true} />} />
