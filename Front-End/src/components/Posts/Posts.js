@@ -10,8 +10,8 @@ const Posts = () => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`http://localhost:4000/post-api/posts?visibility=public&page=${currentPage}`);
-        setPosts(response.data.posts);
-        setTotalPages(response.data.totalPages);
+        setPosts(response.data.payload.posts);
+        setTotalPages(response.data.payload.totalPages);
         console.log(response)
       } catch (error) {
         console.error("Error fetching posts:", error);
