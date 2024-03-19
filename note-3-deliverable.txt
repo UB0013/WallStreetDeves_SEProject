@@ -3,7 +3,7 @@ Note-3-devlierable.txt - that contains the directory information for files submi
 WallStreetDevs_Deliverable_3.pdf - This is deliverable 3 doc submitted in the canvas. It can found at 
 https://github.com/kamaliniPonnuru/WallStreetDeves_SEProject/tree/main/Deliverable3 this location.
 
-inspection-code-WallStreetDevs - Contains the whole the code that is developed during the developement of Phase 1.
+inspection-code-WallStreetDevs - Contains the whole the code that is developed during the developement of Phase 1 and description/explanation for the code that is written during this phase.
 
 Phase 1 Folder - It contains the source code files for Front-end and Back-end.
 
