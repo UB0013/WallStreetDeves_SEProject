@@ -1,0 +1,30 @@
+@import 'normalize.css';
+.post-container {
+    max-width: 100%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    border: 1px solid #0e0707;
+  }
+  
+  /* Title of the blog post */
+  .post-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+
+  }
+  
+  /* Content of the blog post */
+  .post-content {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  /* Author information */
+  .post-author {
+    font-style: italic;
+    color: #555;
+  }
+  

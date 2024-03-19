@@ -1,0 +1,123 @@
+.active{
+    background-color: rgb(65, 150, 189);
+    color:white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 3px;
+  }
+  
+  a{
+    color:aliceblue;
+    text-decoration: none;
+  }
+  
+  a:hover{
+    color:aliceblue;
+  }
+
+  .user-dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  .left-panel, .right-panel {
+    width: 45%;
+  }
+  
+  .user-info {
+    margin-top: 20px;
+  }
+  
+  .user-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .left-panel h2 {
+    margin-bottom: 10px;
+  }
+  
+  .left-panel ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .left-panel ul li {
+    margin-bottom: 10px;
+  }
+  
+  .left-panel ul li button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .left-panel ul li button:hover {
+    background-color: #0056b3;
+  }
+  .right-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .right-panel h1 {
+    margin-bottom: 20px;
+  }
+  
+  .user-dashboard {
+    display: flex;
+  }
+  
+  .user-dashboard-sidebar {
+    width: 25%;
+    padding: 20px;
+  }
+  
+  .user-dashboard-card {
+    background-color: #7bc1e7;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    height: 30vh;
+    width: 20%;
+  }
+  
+  .user-dashboard-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 30px 15px;
+  }
+  
+  .user-dashboard-card-content {
+    padding: 20px;
+  }
+  
+  .user-dashboard-card-content h3 {
+    margin: 0;
+  }
+  
+  .user-dashboard-main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  .userdashboard-container{
+    list-style: none; 
+    padding: 10px; 
+    margin: 10px; 
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 93vw;
+  }
+  
+  
