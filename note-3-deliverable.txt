@@ -10,3 +10,5 @@ Phase 1 Folder - It contains the source code files for Front-end and Back-end.
 Meeting Minutes 9 & 16th March are uploaded in the meeting minutes folder which is recorded for the devlierable 3. It can found at https://github.com/kamaliniPonnuru/WallStreetDeves_SEProject/tree/main/Meeting_Minutes
 
 Updated in trello whenever we had a Team's call.  It can found at https://trello.com/b/IiDZULgO/wallstreetdevsseproject.
+
+Most of the time we used team's call and WhatsApp group chat and WhatsApp calls for our communication purpose. 
