@@ -19,41 +19,49 @@ import NewPost from "../NewPost/NewPost";
 function Header() {
   const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
   const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword,setConfirmNewPassword] =useState("")
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isSuccess, userObj } = useSelector((state) => state.user);
 
   // Function to handle password change
   const handleChangePassword = async () => {
+    if (newPassword !== confirmNewPassword) {
+      alert("Passwords do not match")
+      return;
+    }
+  
     try {
-      const response = await fetch("/change-password", {
+      const response = await fetch("/user-api/change-password", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ newPassword }), // Send the new password to the backend
+        body: JSON.stringify({ username: userObj.username, newPassword }),
       });
-
+  
       if (response.ok) {
-        // Password updated successfully
-        setShowChangePasswordModal(false);
         setNewPassword("");
-        setSuccessMessage("Password updated successfully"); // Set success message
-        setError(""); // Clear any previous error message
+        setConfirmNewPassword("");
+        setSuccessMessage("Password updated successfully");
+        setError("");
+        alert("Password updated successfully");
       } else {
-        // Error updating password
         const data = await response.json();
-        setError(data.message); // Set error message
-        setSuccessMessage(""); // Clear any previous success message
+        setError(data.message);
+        setSuccessMessage("");
+        alert(data.message);
       }
     } catch (error) {
       console.error("Error updating password:", error);
-      setError("Failed to update password"); // Set error message
-      setSuccessMessage(""); // Clear any previous success message
+      setError("Failed to update password");
+      setSuccessMessage("");
+      alert("Failed to update password");
     }
   };
-
-
+  
   // Function to handle user logout
   const userLogout = () => {
     // Perform logout actions here
@@ -167,9 +175,17 @@ function Header() {
               onChange={(e) => setNewPassword(e.target.value)}
             />
           </Form.Group>
-          {error && <p className="text-danger">{error}</p>}
-          {successMessage && <p className="text-success">{successMessage}</p>}
+          <Form.Group controlId="formConfirmNewPassword">
+            <Form.Label>Confirm New Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Confirm new password"
+              value={confirmNewPassword}
+              onChange={(e) => setConfirmNewPassword(e.target.value)}
+            />
+          </Form.Group>
         </Modal.Body>
+
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowChangePasswordModal(false)}>
             Close
