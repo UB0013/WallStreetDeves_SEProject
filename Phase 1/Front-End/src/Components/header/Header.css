@@ -1,0 +1,25 @@
+.active{
+    background-color: rgb(189, 65, 86);
+    color:white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 3px;
+  }
+  
+  a{
+    color:aliceblue;
+    text-decoration: none;
+  }
+  
+  a:hover{
+    color:aliceblue;
+  }
+  
+  #drop-down{
+    /* background-color: #4cb84c; */
+    color:#4cb84c;
+    font-weight: bold;
+    
+    /* border-radius: 5px; */
+  }
