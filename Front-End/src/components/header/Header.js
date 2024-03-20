@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown, Modal, Button, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import Home from "../Home";
@@ -12,27 +12,56 @@ import { useSelector } from "react-redux";
 import { clearLoginStatus } from "../../slices/userSlice";
 import { useDispatch } from "react-redux";
 import Userdashboard from "../userdashboard/Userdashboard";
-import { useNavigate ,Navigate} from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import Posts from "../posts/Posts";
 import NewPost from "../NewPost/NewPost";
 
 function Header() {
-  //get state from store
-  let { userObj, isError, isLoading, isSuccess, errMsg } = useSelector(
-    (state) => state.user
-  );
-  //get dispathc function
-  let dispath = useDispatch();
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const dispatch = useDispatch();
 
-  //get navigate function
-  let navigate = useNavigate();
+  // Function to handle password change
+  const handleChangePassword = async () => {
+    try {
+      const response = await fetch("/change-password", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ newPassword }), // Send the new password to the backend
+      });
 
-  //logout user
+      if (response.ok) {
+        // Password updated successfully
+        setShowChangePasswordModal(false);
+        setNewPassword("");
+        setSuccessMessage("Password updated successfully"); // Set success message
+        setError(""); // Clear any previous error message
+      } else {
+        // Error updating password
+        const data = await response.json();
+        setError(data.message); // Set error message
+        setSuccessMessage(""); // Clear any previous success message
+      }
+    } catch (error) {
+      console.error("Error updating password:", error);
+      setError("Failed to update password"); // Set error message
+      setSuccessMessage(""); // Clear any previous success message
+    }
+  };
+
+
+  // Function to handle user logout
   const userLogout = () => {
+    // Perform logout actions here
     localStorage.clear();
-    dispath(clearLoginStatus());
+    dispatch(clearLoginStatus());
     navigate("/login");
   };
+
 
   return (
     <div>
@@ -92,9 +121,11 @@ function Header() {
                   <NavDropdown
                     title={userObj.username}
                     //id="collasible-nav-dropdown"
-                     id="drop-down"
+                    id="drop-down"
                   >
-                    <NavDropdown.Item>Change password</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => setShowChangePasswordModal(true)}>
+                      Change password
+                    </NavDropdown.Item>
 
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={userLogout}>
@@ -120,6 +151,34 @@ function Header() {
           <Route path="" element={<Navigate to="profile" replace={true} />} />
         </Route>
       </Routes>
+
+      {/* Change Password Modal */}
+      <Modal show={showChangePasswordModal} onHide={() => setShowChangePasswordModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Change Password</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form.Group controlId="formNewPassword">
+            <Form.Label>New Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+          </Form.Group>
+          {error && <p className="text-danger">{error}</p>}
+          {successMessage && <p className="text-success">{successMessage}</p>}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowChangePasswordModal(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleChangePassword}>
+            Change Password
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

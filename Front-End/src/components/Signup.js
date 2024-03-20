@@ -97,11 +97,16 @@ function Signup() {
               <Form.Control
                 type="text"
                 placeholder="Enter email"
-                {...register("email", { required: true })}
+                {...register("email", {
+                  required: true,
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@my\.unt\.edu$/,
+                    message: "Please enter a valid @my.unt.edu email address",
+                  },
+                })}
               />
-              {/* validation error message for password */}
               {errors.email && (
-                <p className="text-danger">* Email is required</p>
+                <p className="text-danger">{errors.email.message}</p>
               )}
             </Form.Group>
 

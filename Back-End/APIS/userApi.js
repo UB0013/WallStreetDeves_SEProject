@@ -74,6 +74,37 @@ userApp.post(
   })
 );
 
+userApp.put("/change-password", expressAsyncHandler(async (request, response) => {
+  // Extract username and new password from the request body
+  const { username, newPassword } = request.body;
+
+  try {
+    // Find the user by username in your database
+    const user = await User.findOne({ username });
+
+    // If the user does not exist, return an error
+    if (!user) {
+      return response.status(404).json({ message: "User not found" });
+    }
+
+    // Hash the new password
+    const hashedPassword = await bcryptjs.hash(newPassword, 10);
+
+    // Update the user's password in the database
+    user.password = hashedPassword;
+    await user.save();
+
+    // Send a success response
+    response.status(200).json({ message: "Password updated successfully" });
+  } catch (error) {
+    console.error("Error updating password:", error);
+    // Send an error response
+    response.status(500).json({ message: "Failed to update password" });
+  }
+
+})
+);
+
 //create a route to 'create-user'
 userApp.post(
   "/create-user",
